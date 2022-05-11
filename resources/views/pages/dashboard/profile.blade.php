@@ -55,27 +55,44 @@
 
                                     </div>
                                     <div class="md:col-span-6 lg:col-span-3">
-                                        <label for="service-name" class="block mb-3 font-medium text-gray-700 text-md">Full Name</label>
-                                        <input placeholder="Alex Jones" type="text" name="service-name" id="service-name" autocomplete="service-name" class="block w-full py-3 mt-1 border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 sm:text-sm">
+                                        <label for="name" class="block mb-3 font-medium text-gray-700 text-md">Full Name</label>
+                                        <input placeholder="Your name" type="text" name="name" id="name" autocomplete="name" class="block w-full py-3 mt-1 border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 sm:text-sm" value="{{ $user->name ?? '' }}" required>
+
+                                        @if ($errors->has('name'))
+                                        <p class="text-red-500 mb-3 text-sm">{{ $errors->first('name') }}</p>
+                                    @endif
                                     </div>
                                     <div class="md:col-span-6 lg:col-span-3">
-                                        <label for="service-name" class="block mb-3 font-medium text-gray-700 text-md">Role</label>
-                                        <input placeholder="Website Developer" type="text" name="service-name" id="service-name" autocomplete="service-name" class="block w-full py-3 mt-1 border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 sm:text-sm">
+                                        <label for="role" class="block mb-3 font-medium text-gray-700 text-md">Role</label>
+                                        <input placeholder="Your Role" type="text" name="role" id="role" autocomplete="role" class="block w-full py-3 mt-1 border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 sm:text-sm" value="{{ $user->detail_user->role ?? '' }}" required>
+
+                                        @if ($errors->has('role'))
+                                        <p class="text-red-500 mb-3 text-sm">{{ $errors->first('role') }}</p>
+                                    @endif
                                     </div>
                                     <div class="md:col-span-6 lg:col-span-3">
-                                        <label for="service-name" class="block mb-3 font-medium text-gray-700 text-md">Email Address</label>
-                                        <input placeholder="Alex.jones@gmail.com" type="text" name="service-name" id="service-name" autocomplete="service-name" class="block w-full py-3 mt-1 border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 sm:text-sm">
+                                        <label for="email" class="block mb-3 font-medium text-gray-700 text-md">Email Address</label>
+                                        <input placeholder="Alex.jones@gmail.com" type="email" name="email" id="email" autocomplete="email" class="block w-full py-3 mt-1 border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 sm:text-sm" value="{{ $user->email }}" required>
+
+                                        @if ($errors->has('email'))
+                                        <p class="text-red-500 mb-3 text-sm">{{ $errors->first('email') }}</p>
+                                    @endif
                                     </div>
                                     <div class="md:col-span-6 lg:col-span-3">
-                                        <label for="service-name" class="block mb-3 font-medium text-gray-700 text-md">Contact Number</label>
-                                        <input placeholder="087721205555" type="number" name="service-name" id="service-name" autocomplete="service-name" class="block w-full py-3 mt-1 border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 sm:text-sm">
+                                        <label for="contact_number" class="block mb-3 font-medium text-gray-700 text-md">Contact Number</label>
+                                        <input placeholder="087721205555" type="number" name="contact_number" id="contact_number" autocomplete="contact_number" class="block w-full py-3 mt-1 border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 sm:text-sm" value="{{ $user->detail_user->contact_number ?? '' }}" required>
+
+                                        @if ($errors->has('contact_number'))
+                                        <p class="text-red-500 mb-3 text-sm">{{ $errors->first('contact_number') }}</p>
+                                    @endif
                                     </div>
                                     <div class="col-span-6">
-                                        <label for="service-name" class="block mb-3 font-medium text-gray-700 text-md">Biografi</label>
-                                        <textarea placeholder="Enter your biography here.." type="text" name="service-name" id="service-name" autocomplete="service-name" class="block w-full py-3 mt-1 border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 sm:text-sm" rows="4">I am a web developer and web designer. I have an Associate Degree in Software and Web Development, and I have much
-                                        experience in programming languages,
-                                        such as HTML5, CSS3, PHP, Javascript and PHP. I can use Bootstrap and WordPress.
-                                        I will provide fast response and clear communication in several languages.  Feel free to contact me, thank you!</textarea>
+                                        <label for="biography" class="block mb-3 font-medium text-gray-700 text-md">Biography</label>
+                                        <textarea placeholder="Enter your biography here.." type="text" name="biography" id="biography" autocomplete="biography" class="block w-full py-3 mt-1 border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 sm:text-sm" rows="4">{{ $user->detail_user->biography ?? '' }}</textarea>
+
+                                        @if ($errors->has('biography'))
+                                        <p class="text-red-500 mb-3 text-sm">{{ $errors->first('biography') }}</p>
+                                    @endif
                                     </div>
                                     <div class="col-span-6">
                                         <label for="service-name" class="block mb-3 font-medium text-gray-700 text-md">My Experience</label>
